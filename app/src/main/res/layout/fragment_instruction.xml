@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <data>
+        <variable
+            name="instructionFragment"
+            type="com.udacity.shoestore.onboarding.InstructionFragment" />
+    </data>
+    
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -8,17 +14,18 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome!" />
+        android:text="Instructions!" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Click next to navigate to next screen" />
+        android:text="here are the instructions" />
 
     <Button
         android:id="@+id/btnNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="@{(v)->instructionFragment.onNextSelected()}"
         android:text="NExt" />
 </LinearLayout>
 </layout>
