@@ -34,6 +34,9 @@ class ShoeDetailFragment :Fragment(){
                 }
             })
 
+
+
+
         return fragmentShoeDetailBinding.root
     }
 }

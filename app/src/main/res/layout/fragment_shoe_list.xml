@@ -6,13 +6,25 @@
             name="shoeListViewModel"
             type="com.udacity.shoestore.shoelist.ShoeListViewModel" />
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
 
 
+    <TextView
+        android:id="@+id/tvShoeList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
+        />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddShoe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,5 +32,6 @@
         android:layout_margin="16dp"
         android:onClick="@{() ->shoeListViewModel.addShoe()}"
         />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+    </ScrollView>
 </layout>

@@ -8,11 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
+import timber.log.Timber
 
 class LoginFragment: Fragment() {
 
     private lateinit var fragmentLoginBinding: FragmentLoginBinding
-
 
     override fun onCreateView(
         inflater: LayoutInflater,

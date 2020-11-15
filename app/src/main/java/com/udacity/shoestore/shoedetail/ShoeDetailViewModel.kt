@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 class ShoeDetailViewModel:ViewModel() {
 
     private val _eventAddShoe = MutableLiveData<Boolean>()
+
     val eventAddShoe: LiveData<Boolean>
         get() = _eventAddShoe
 
@@ -15,7 +16,9 @@ class ShoeDetailViewModel:ViewModel() {
         _eventAddShoe.value = true
     }
 
+    fun cancel(){
 
+    }
     fun onAddShoeEventComplete(){
         _eventAddShoe.value =false
     }

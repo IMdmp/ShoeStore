@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
+import timber.log.Timber
 
 class ShoeListFragment: Fragment() {
 
@@ -31,6 +32,12 @@ class ShoeListFragment: Fragment() {
                 shoeListViewModel.onAddShoeEventComplete()
             }
         })
+
+        shoeListViewModel._shoeList.observe(viewLifecycleOwner, Observer { shoeList->
+            Timber.d("shoe size: ${shoeList.size}")
+        })
+
+
 
         return fragmentShoeListBinding.root
     }
