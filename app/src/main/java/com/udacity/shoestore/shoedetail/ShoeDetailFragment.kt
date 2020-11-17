@@ -39,6 +39,10 @@ class ShoeDetailFragment : Fragment() {
 
 
 
+        binding.btnCancel.setOnClickListener {
+            findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
+        }
+
         return binding.root
     }
 }
