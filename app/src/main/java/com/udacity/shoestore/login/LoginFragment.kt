@@ -8,11 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
-import timber.log.Timber
 
 class LoginFragment: Fragment() {
 
-    private lateinit var fragmentLoginBinding: FragmentLoginBinding
+    private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,13 +19,17 @@ class LoginFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_login, container, false)
-        fragmentLoginBinding = FragmentLoginBinding.bind(root)
-        fragmentLoginBinding.loginFragment = this
-        return fragmentLoginBinding.root
+        binding = FragmentLoginBinding.bind(root)
+        binding.loginFragment = this
+        return binding.root
     }
 
     fun onLoginSelected() {
+        val email = binding.etEmail.text.toString()
+        val password = binding.etPassword.toString()
+
         findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
+
     }
 
 

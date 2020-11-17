@@ -8,6 +8,7 @@ class ShoeDetailViewModel:ViewModel() {
 
     private val _eventAddShoe = MutableLiveData<Boolean>()
 
+
     val eventAddShoe: LiveData<Boolean>
         get() = _eventAddShoe
 

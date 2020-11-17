@@ -13,7 +13,7 @@ import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 
 class ShoeDetailFragment :Fragment(){
 
-    lateinit var fragmentShoeDetailBinding: FragmentShoeDetailBinding
+    lateinit var binding: FragmentShoeDetailBinding
     lateinit var shoeDetailViewModel: ShoeDetailViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,14 +21,16 @@ class ShoeDetailFragment :Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_shoe_detail,container,false)
-        fragmentShoeDetailBinding = FragmentShoeDetailBinding.bind(root)
+        binding = FragmentShoeDetailBinding.bind(root)
         shoeDetailViewModel =ViewModelProvider(this).get(ShoeDetailViewModel::class.java)
 
-        fragmentShoeDetailBinding.shoeDetailViewModel = shoeDetailViewModel
+        binding.shoeDetailViewModel = shoeDetailViewModel
 
         shoeDetailViewModel.eventAddShoe.observe(viewLifecycleOwner,
             Observer { addShoe->
                 if(addShoe){
+                    val shoeName = binding.etShoeName.text.toString()
+
                     findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
                     shoeDetailViewModel.onAddShoeEventComplete()
                 }
@@ -37,6 +39,6 @@ class ShoeDetailFragment :Fragment(){
 
 
 
-        return fragmentShoeDetailBinding.root
+        return binding.root
     }
 }
