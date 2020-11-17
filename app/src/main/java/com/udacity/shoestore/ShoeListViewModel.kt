@@ -1,4 +1,4 @@
-package com.udacity.shoestore.shoelist
+package com.udacity.shoestore
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,17 +7,23 @@ import com.udacity.shoestore.models.Shoe
 
 class ShoeListViewModel :ViewModel(){
 
-    private val shoeList = MutableLiveData<List<Shoe>>()
-    val _shoeList: LiveData<List<Shoe>>
-    get() = shoeList
+    private val _shoeList = MutableLiveData<MutableList<Shoe>>()
+    val shoeList: LiveData<MutableList<Shoe>>
+    get() = _shoeList
 
     private val _eventAddShoe = MutableLiveData<Boolean>()
     val eventAddShoe:LiveData<Boolean>
     get() = _eventAddShoe
     init {
         _eventAddShoe.value = false
+        _shoeList.value= mutableListOf()
     }
-    fun addShoe(){
+    fun addShoe(shoe: Shoe){
+        _shoeList.value?.add(shoe)
+
+    }
+
+    fun goAddShoe(){
         _eventAddShoe.value = true
     }
 
