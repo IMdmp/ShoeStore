@@ -4,7 +4,9 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    >
 
 
     <TextView
@@ -12,6 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add shoe: "
+        android:textSize="32sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
@@ -23,17 +26,20 @@
         app:layout_constraintTop_toBottomOf="@id/tvLabel"
         app:layout_constraintBottom_toTopOf="@id/tvShoeSize"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/etShoeName"
         android:text="Shoe Name:"
         />
 
     <EditText
         android:id="@+id/etShoeName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Nike"
+        android:hint="Hyperion"
+        style="@style/InputBox"
+        android:inputType="text"
         app:layout_constraintTop_toTopOf="@id/tvShoeName"
         app:layout_constraintStart_toEndOf="@id/tvShoeName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/tvShoeName"
+
         />
     <TextView
         android:id="@+id/tvShoeSize"
@@ -41,16 +47,16 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/tvShoeName"
         app:layout_constraintBottom_toTopOf="@id/tvCompany"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvShoeName"
         android:text="Shoe Size"
         />
     <EditText
         android:id="@+id/etShoeSize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/InputBox"
+        android:inputType="number|numberDecimal"
         android:hint="7"
         app:layout_constraintTop_toTopOf="@id/tvShoeSize"
-        app:layout_constraintStart_toEndOf="@id/tvShoeSize"
+        app:layout_constraintStart_toStartOf="@id/etShoeName"
         app:layout_constraintBottom_toBottomOf="@id/tvShoeSize"
         />
 
@@ -60,7 +66,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/tvShoeSize"
         app:layout_constraintBottom_toTopOf="@id/tvDescription"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvShoeName"
         android:text="Company:"
         />
 
@@ -70,26 +76,26 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/tvCompany"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvShoeName"
         android:text="Description : "
         />
     <EditText
         android:id="@+id/etCompany"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="nike"
+        style="@style/InputBox"
+        android:hint="Nike"
+        android:inputType="text"
         app:layout_constraintTop_toTopOf="@id/tvCompany"
-        app:layout_constraintStart_toEndOf="@id/tvCompany"
+        app:layout_constraintStart_toStartOf="@id/etShoeName"
         app:layout_constraintBottom_toBottomOf="@id/tvCompany"
         />
 
     <EditText
         android:id="@+id/etDesciption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/InputBox"
         android:hint="running shoe"
+        android:inputType="text"
         app:layout_constraintTop_toTopOf="@id/tvDescription"
-        app:layout_constraintStart_toEndOf="@id/tvDescription"
+        app:layout_constraintStart_toStartOf="@id/etShoeName"
         app:layout_constraintBottom_toBottomOf="@id/tvDescription"
         />
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <data>
@@ -8,49 +9,106 @@
             type="com.udacity.shoestore.login.LoginFragment" />
 
     </data>
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp"
+        >
+
 
         <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="match_parent"
+            android:id="@+id/tvHeader"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email" />
+            android:text="Alpacas"
+            android:textSize="24sp"
+            />
+        <TextView
+            android:id="@+id/tvSubHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shoe Store"
+
+            />
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/tvSubHeader"
+            app:layout_constraintBottom_toTopOf="@id/tvPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/etEmail"
+            android:layout_marginTop="16dp"
+
+            />
 
 
         <EditText
             android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="user@email.com" />
+            android:hint="user@email.com"
+            android:inputType="textEmailAddress"
+            android:layout_marginStart="16dp"
+            style="@style/InputBox"
+            app:layout_constraintStart_toEndOf="@id/tvEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvEmail"
+            app:layout_constraintBottom_toBottomOf="@id/tvEmail"
+            />
 
         <TextView
             android:id="@+id/tvPassword"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password" />
+            android:text="Password"
+
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/tvEmail"
+            app:layout_constraintBottom_toTopOf="@id/btnCreateAccount"
+            app:layout_constraintStart_toStartOf="@id/tvEmail"
+            android:layout_marginTop="8dp"
+            />
 
         <EditText
             android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            app:layout_constraintTop_toTopOf="@id/tvPassword"
+            app:layout_constraintBottom_toBottomOf="@id/tvPassword"
+            app:layout_constraintStart_toStartOf="@id/etEmail"
+            style="@style/InputBox" />
 
+        <Button
+
+            android:id="@+id/btnCreateAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(v)->loginFragment.onCreateAccountSelected()}"
+            android:text="Create Account"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnLogin"
+            app:layout_constraintTop_toBottomOf="@id/tvPassword"
+            android:layout_marginTop="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{(v)->loginFragment.onLoginSelected()}"
-            android:text="Login" />
-
-        <Button
-            android:id="@+id/btnCreateAccount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{(v)->loginFragment.onCreateAccountSelected()}"
-            android:text="Create Account" />
-    </LinearLayout>
+            android:text="Login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnCreateAccount"
+            app:layout_constraintTop_toTopOf="@id/btnCreateAccount"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
